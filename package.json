@@ -1,0 +1,25 @@
+{
+  "name": "twitterbot",
+  "version": "1.0.0",
+  "description": "This is a twitter bot.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joneshshrestha/twitterbot.git"
+  },
+  "keywords": [
+    "twitterbot"
+  ],
+  "author": "jonesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joneshshrestha/twitterbot/issues"
+  },
+  "homepage": "https://github.com/joneshshrestha/twitterbot#readme",
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
+}
