@@ -4,32 +4,38 @@ let Twit = require('twit') //import twit to node
 let config = require('./config') //import tokens
 let T = new Twit(config)
 
-//setting up a user stream 
-let stream = T.stream('user')
-//anytime someone follows me
-stream.on ('tweet', tweetEvent)
+// T.post('statuses/retweet/:id', { id: '343360866131001345' }, function (err, data, response) {
+//     console.log(data)
+//   })
 
-function tweetEvent (eventMsg) {
-    console.log("follow event!")
-    let name = eventMsg.source.name
-    let screenName = eventMsg.source.screen_name
-    tweetIt('.@' + screenName + ' thank you for following me!' )
+let tweetID = {
+    id : ''
 }
 
-function tweetIt(txt) {
+T.post('statuses/retweet/:id', tweetID, tweeted)
 
-
-    let tweet = {
-        status : txt
-    }
-
-    T.post('statuses/update', tweet, tweeted)
-
-    function tweeted(err, data, response) {
-        if (err) {
-            console.log('something went wrong')
-        } else
-            console.log('It worked!')
+function tweeted (err, data, response) {
+    if (err) {
+        console.log('Something went wrong')
+    } else {
+        console.log('Success')
     }
 }
-    
+
+// var sanFrancisco = [ '-122.75', '36.8', '-121.75', '37.8' ]
+
+// var stream = T.stream('statuses/filter', { locations: sanFrancisco })
+
+// stream.on('tweet', function (tweet) {
+//   console.log(tweet)
+// })
+
+let userID = {
+    id : ''
+}
+
+T.stream('user', userID, tweeted)
+
+stream.on('user_update', function (tweet) {
+    console.log(tweet)
+  })
