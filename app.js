@@ -8,21 +8,20 @@ let T = new Twit(config)
 //     console.log(data)
 //   })
 
-let tweetID = {
-    id : ''
-}
+// let tweetID = {
+//     id : ''
+// }
 
-T.post('statuses/retweet/:id', tweetID, tweeted)
+// T.post('statuses/retweet/:id', tweetID, tweeted)
 
 function tweeted (err, data, response) {
     if (err) {
         console.log('Something went wrong')
     } else {
-        console.log('Success')
+        console.log(data)
     }
 }
 
-// var sanFrancisco = [ '-122.75', '36.8', '-121.75', '37.8' ]
 
 // var stream = T.stream('statuses/filter', { locations: sanFrancisco })
 
@@ -31,11 +30,11 @@ function tweeted (err, data, response) {
 // })
 
 let userID = {
-    id : ''
+    id : '3593619134'
 }
 
-T.stream('user', userID, tweeted)
+let stream = T.stream('user', userID, tweeted)
 
-stream.on('user_update', function (tweet) {
-    console.log(tweet)
+stream.on('user_update', function (eventMsg) {
+    console.log(eventMsg)
   })
