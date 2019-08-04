@@ -25,12 +25,9 @@ stream.on('tweet', function (tweet) {
     T.post('statuses/retweet/:id', tweetID, tweeted)
   })
 
-  
-T.post('statuses/retweet/:id', { id: '343360866131001345' }, function (err, data, response) {
-    console.log(data)
-  })
-
-
+// T.post('statuses/retweet/:id', { id: '343360866131001345' }, function (err, data, response) {
+//     console.log(data)
+//   })
 
 // const stream = T.stream('statuses/filter', { follow: ['3593619134'] });
 // stream.on('tweet', (tweet) => {
