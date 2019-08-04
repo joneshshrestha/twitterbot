@@ -4,7 +4,11 @@
   "description": "This is a twitter bot.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "v10.15.3"
   },
   "repository": {
     "type": "git",
@@ -21,5 +25,6 @@
   "homepage": "https://github.com/joneshshrestha/twitterbot#readme",
   "dependencies": {
     "twit": "^2.2.11"
-  }
+  },
+  "devDependencies": {}
 }
